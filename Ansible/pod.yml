@@ -1,0 +1,11 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: newapp
+  labels:
+    app: mywebsite
+spec:
+  containers:
+    - name: newapp
+      image: linuxacademycontent/store-products:1.0.0
