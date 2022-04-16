@@ -1,1 +1,9 @@
+Hello there again!
+So this is the second step of our project. 
+We firstly made an EKS cluster (you will find all the needed files and explanation in the AWS K8s Cluster repo) 
 
+Here we will deploy our app using an ansible playbook. 
+I used an image of a simple database app you could use any kind of apps it just follows the same concept.
+
+To run the playbook use:
+$ansible-playbook <playbookname.yml>
