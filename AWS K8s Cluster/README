@@ -1,1 +1,64 @@
+Hello there! 
+Welcome to the first part of this project where we will be creating a whole CI/CD oipeline to deploy an app on an EKS cluster. We will start firstly by setting up our EKS cluster using Terrafrom.
+
+In order to create our EKS cluster we need to set-up a suitable environment which means we need to create some AWS resources. 
+1- Create the provider tf file 
+2- Create a VPC
+3-Create SG 
+4- Export needed ports 
+5-THE EKS Cluster 
+
+Firstly: 
+Create the provider tf file. Here we will be deploying on AWS so add AWS as the provider and create a key pair then add your key credentials in the provider.tf. 
+P.S: never upload your key credentials on github make sure to erase them before pushing the code or else you will be exposed to a breach and AWS could restrict your account.
+Or rather pass them as a variable in the provider.tf and declare them in another tf file.
+
+Secondly: 
+Let's hop on to a suitable editor of your choice, I prefer VScode. The good thing about VS code is that it has multiple plugins and packages you could download that makes devops a bit easier. 
+For writing tF files I have downloaded the terraform package. 
+Now, You could start with creating the VPC. There are some options you could use:
+a- You could use the VPC module on Terrafrom registry
+b- You could create your own module from scratch 
+c- You could use any prefered module on github just add the link to that github repo in the "resource" attribute 
+
+For this demo I prefered to experiment with the VPC module on Terraform registry. 
+The VPC.tf file will create a VPC with the corresponding specs
+- AWS VPC of 10.0.0.0/16 CIDR range in us-east-1 region
+- 3 public and private subnets
+- Enabled the NAT Gateway & DNS Hostname
+
+
+Thirdly:
+Let's create the EKS cluster for the  VPC that we just created above. 
+In the EKS.tf you'll find the needed information, here I also chose to use the EKS module from Terrafrom Registry.
+What I did is:
+- Create 2 worker groups with the desired capacity of 3 instances of type t2.micro
+- Attaching the recently created security group to both the worker node groups
+
+Fourthly:
+Create kubernetes provider for authentication.
+The Kubernetes (K8S) provider is used to interact with the resources supported by Kubernetes. The provider needs to be configured with the proper credentials before it can be used.
+
+Radey....Set...Terraform!
+Now we have all our files ready let's push them to our repo. 
+1- Initialise:
+$Terrafrom init 
+
+2- PLan:
+$Terraform plan
+
+3- Apply:
+$Terraform apply 
+
+4- See!
+Now you could check your AWS resources
+
+
+#aws eks --region us-east-1 update-kubeconfig --name nameofcluster
+
+#kubectl get nodes
+
+
+
+
 
