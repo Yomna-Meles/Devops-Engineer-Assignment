@@ -1,8 +1,14 @@
 variable "region" {
     default = "us-east-1"
-}data "aws_availability_zones" "available" {}locals {
+}
+
+data "aws_availability_zones" "available" {}
+
+locals {
     cluster_name = "EKS-Cluster"
-}module vpc {
+}
+
+module vpc {
     source = "terraform-aws-modules/vpc/aws"
     version = "3.2.0"
     name = "Demo-VPC"
@@ -12,11 +18,17 @@ variable "region" {
     public_subnets =  ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
     enable_nat_gateway = true
     single_nat_gateway = true
-    enable_dns_hostname = truetags = {
+    enable_dns_hostnames = true
+
+tags = {
     "Name" = "Demo-VPC"
-}public_subnet_tags = {
+}
+
+public_subnet_tags = {
     "Name" = "Demo-Public-Subnet"
-}private_subnet_tags = {
+}
+
+private_subnet_tags = {
     "Name" = "Demo-Private-Subnet"
 }
 }
