@@ -1,1 +1,5 @@
+Here we will deploy our app using CodePipeline from AWS instead of Ansible playbook that we used previously. 
+CodePipline: 
+Orchestrate the whole CI/CD pipeline. It uses CodeCommit, CodeBuild and CodeDeploy each disussed in a separate text file in the current directory. 
+
 
