@@ -3,3 +3,7 @@ CodePipline:
 Orchestrate the whole CI/CD pipeline. It uses CodeCommit, CodeBuild and CodeDeploy each disussed in a separate text file in the current directory. 
 
 
+Errors Faced:
+There's an error with the CA certificate and thus I couldn't connect with the EKS Cluster. I tried to solve it but solutions I found online didn't workout.
+
+
