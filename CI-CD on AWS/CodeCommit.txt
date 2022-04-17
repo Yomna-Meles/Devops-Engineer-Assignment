@@ -1,0 +1,29 @@
+Code Commit: 
+why code commit and not github?
+1- More secure since It's not on a public repo it's on my AWS account.
+2- All in one place 
+
+Steps:
+1- Create IAM user and don't use root privilege.
+2- Create an https key for code commit (download csv file)
+3- Create a repo 
+4- clone your local repo (get url of repo you created on AWS) 
+$ git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/Yomna-repo1
+
+Enter username and password from the https key created (found in csv file)
+
+Now we have established a connection let's proceed...
+
+5- Push your codes
+$ git add .
+$git commit -m "first commit"
+
+It's committed locally now push:
+$git push
+
+Errors faced and solution: 
+1- Origin not found
+$git remote add origin https://git-codecommit.us-east-1.amazonaws.com/v1/repos/Yomna-repo1
+$git push --set-upstream origin master
+
+
