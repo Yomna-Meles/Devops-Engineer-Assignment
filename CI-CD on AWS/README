@@ -6,4 +6,4 @@ Orchestrate the whole CI/CD pipeline. It uses CodeCommit, CodeBuild and CodeDepl
 Errors Faced:
 There's an error with the CA certificate and thus I couldn't connect with the EKS Cluster. I tried to solve it but solutions I found online didn't workout.
 
-
+I tried to implement the pipeline on another resources in DemoPipeline.
